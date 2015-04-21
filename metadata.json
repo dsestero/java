@@ -1,0 +1,18 @@
+{
+  "author": "Dario Sestero",
+  "dependencies": [],
+  "license": "Creative Commons Attribution-Share Alike 4.0 International license (CC-BY-SA-4.0)",
+  "name": "dsestero-java",
+  "project_page": "",
+  "source": "ssh://git@puppet/var/lib/git/puppetmodules/jboss.git",
+  "summary": "Install Java OpenJDK and configure the default java alternative",
+  "requirements": [{"name": "puppet", "version_requirement": "3.x"}],
+  "operatingsystem_support": [
+      {
+          "operatingsystem": "Ubuntu",
+          "operatingsystemrelease": ["10.04", "12.04"]
+      }
+  ],
+  "tags": ["java", "jee", "jvm", "middleware"],
+  "version": "1.0.0"
+}
