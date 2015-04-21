@@ -4,7 +4,7 @@
   "license": "Creative Commons Attribution-Share Alike 4.0 International license (CC-BY-SA-4.0)",
   "name": "dsestero-java",
   "project_page": "https://github.com/dsestero/java",
-  "source": "ssh://git@github.com:dsestero/java.git",
+  "source": "https://github.com/dsestero/java.git",
   "summary": "Install Java OpenJDK and configure the default java alternative",
   "requirements": [{"name": "puppet", "version_requirement": "3.x"}],
   "operatingsystem_support": [
