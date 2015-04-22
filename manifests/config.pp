@@ -5,29 +5,32 @@
 #
 # == Actions:
 #
-# Sets up the default java according to the parameter <tt>java_default_version</tt> if it is not null.
+# Sets up the default java according to the parameter
+# <tt>java_default_version</tt> if it is not null.
 #
 # == Requires:
 # none
 #
-define java::config ($java_version = $title, $java_default_version) {
+define java::config ($java_default_version, $java_version = $title,) {
   if $java_default_version != undef and $java_version == $java_default_version {
     case $::operatingsystem {
       'Ubuntu' : {
         case $::operatingsystemrelease {
           '10.04' : {
-            $javadir = "/usr/lib/jvm/java-${$java_version}-openjdk/jre/bin/java"
+            $javadir = "/usr/lib/jvm/java-${java_version}-openjdk/jre/bin/java"
           }
           '12.04' : {
-            $javadir = "/usr/lib/jvm/java-${$java_version}-openjdk-${::architecture}/jre/bin/java"
+            $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${::architecture}/jre/bin/java"
           }
           default : {
-            fail("The ${module_name} module is not supported on ${::operatingsystem} release ${::operatingsystemrelease}")
+            fail("The ${module_name} module is not supported on ${::operatingsystem} release ${::operatingsystemrelease}"
+            )
           }
         }
       }
       default  : {
-        fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
+        fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution."
+        )
       }
     }
 
