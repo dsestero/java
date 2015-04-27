@@ -62,7 +62,7 @@ It is possible to install multiple versions of Java on a single node and to spec
 Installs OpenJDK-6 from the repositories.
 
 ###`java::java_7`
-Installs OpenJDK-6 from the repositories.
+Installs OpenJDK-7 from the repositories.
 
 ####Parameters
 
