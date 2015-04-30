@@ -1,9 +1,10 @@
 {
   "author": "Dario Sestero",
   "dependencies": [],
-  "license": "CC-BY-SA-4.0",
+  "license": "Apache-2.0",
   "name": "dsestero-java",
   "project_page": "https://github.com/dsestero/java",
+  "issues_url": "https://github.com/dsestero/java/issues",
   "source": "https://github.com/dsestero/java.git",
   "summary": "Install Java OpenJDK and configure the default java alternative",
   "requirements": [{"name": "puppet", "version_requirement": "3.x"}],
@@ -14,5 +15,5 @@
       }
   ],
   "tags": ["java", "jee", "jvm", "middleware"],
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
