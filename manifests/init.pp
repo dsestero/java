@@ -18,12 +18,9 @@
 #
 # Declares all other defines in the java module needed for installing Java.
 # Currently, these consists of java::install, and java::config.
-# Furthermore, the module provides two classes ready for use for installing
-# java-6 and java-7 using the defines.
 # If hiera defines a value for the parameter <tt>java_default_version</tt> on
-# the target node the
-# command <tt>update-alternatives</tt> is issued to set the default java
-# accordingly.
+# the target node the command <tt>update-alternatives</tt> is issued to set the
+# default java accordingly.
 #
 # Requires: see Modulefile
 #

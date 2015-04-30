@@ -58,20 +58,49 @@ It is possible to install multiple versions of Java on a single node and to spec
 
 ##Reference
 
+###Classes
+
+####Public Classes
+
+* [`java::java_6`](#javajava_6): Installs open-jdk-6.
+* [`java::java_7`](#javajava_7): Installs open-jdk-7.
+
+###Defines
+
+####Public Defines
+
+* [`java::java`](#javajava): Install a specific version of java jdk and possibly sets update-alternative default
+
+####Private Defines
+
+* [`java::java_install`](#javajava_install): Installs a specific java open-jdk package
+* [`java::java_config`](#javajava_config): Configures the update-alternative default java
+
 ###`java::java_6`
 Installs OpenJDK-6 from the repositories.
 
 ###`java::java_7`
 Installs OpenJDK-7 from the repositories.
 
+###`java::java`
+Install a specific version of java jdk and possibly sets update-alternative default.
+If hiera defines a value for the parameter `java::java_default_version` on
+the target node the command `update-alternatives` is issued to set the
+default java accordingly.
+
+Declares all other defines in the java module needed for installing Java. Currently, these consists of `java::install`, and `java::config`.
+
 ####Parameters
 
-#####`java::java_default_version`
-If present in a JSON hiera file allows to set the default java command in the alternative system.
+#####`java_version`
+Specifies the java version to install. Valid options: '6' or '7'. Defaults to the resource title.
+
+#####`java_default_version`
+Specifies the default java in case multiple versions are installed. Valid options: '6' or '7'. Defaults to the hiera defined key `java::java_default_version`.
 
 ##Limitations
 
-At the moment the module targets only OpenJDK on Ubuntu platforms. Specifically, it is tested only on Ubuntu 10.04 and 12.04 distributions, although probably it will work also on more recent versions.
+At the moment the module targets only OpenJDK 6 and 7 on Ubuntu platforms. Specifically, it is tested only on Ubuntu 10.04 and 12.04 distributions, although probably it will work also on more recent versions.
 
 ##Development
 
