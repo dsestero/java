@@ -13,8 +13,8 @@
 #
 define java::config ($java_default_version, $java_version = $title,) {
   if $java_default_version != undef and $java_version == $java_default_version {
-    case $::operatingsystem {
-      'Ubuntu' : {
+    case $::osfamily {
+      'Debian' : {
         case $::operatingsystemrelease {
           '10.04' : {
             $javadir = "/usr/lib/jvm/java-${java_version}-openjdk/jre/bin/java"
@@ -24,6 +24,20 @@ define java::config ($java_default_version, $java_version = $title,) {
           }
           default : {
             fail("The ${module_name} module is not supported on ${::operatingsystem} release ${::operatingsystemrelease}"
+            )
+          }
+        }
+      }
+      'RedHat' : {
+        case $::operatingsystemmajrelease {
+          '6' : {
+            $javadir = "/usr/lib/jvm/java-${java_version}-openjdk/jre/bin/java"
+          }
+          '7' : {
+            $javadir = "/usr/lib/jvm/java-${java_version}-openjdk/jre/bin/java"
+          }
+          default : {
+            fail("The ${module_name} module is not supported on ${::operatingsystem} release ${::operatingsystemmajrelease}"
             )
           }
         }
