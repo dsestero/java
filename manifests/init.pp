@@ -29,7 +29,8 @@
 #  java {'6': }
 define java (
   $java_version         = $title,
-  $java_default_version = hiera('java::java_default_version', undef)) {
+  $java_default_version = undef,
+) {
   java::install { $java_version:
   } -> java::config { $java_version:
     java_default_version => $java_default_version,

@@ -14,6 +14,7 @@ define java::install ($java_version = $title) {
   $package_name = $java_version ? {
     6       => 'openjdk-6-jdk',
     7       => 'openjdk-7-jdk',
+    8       => 'openjdk-8-jdk',
     default => undef,
   }
 
