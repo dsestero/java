@@ -1,3 +1,7 @@
+##2015-07-12 - Release - 1.0.3
+###Summary
+Bump version number after testing with Puppet 4.
+
 ##2015-04-30 - Release - 1.0.2
 ###Summary
 Improved documentation, rspec tests added, license changed from CC-BY-SA-4.0 to Apache-2.0.
