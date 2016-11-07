@@ -73,8 +73,7 @@ It is possible to install multiple versions of Java on a single node and to spec
 
 ####Private Defines
 
-* [`java::java_install`](#javajava_install): Installs a specific java open-jdk package
-* [`java::java_config`](#javajava_config): Configures the update-alternative default java
+* [`java::java_install_config`](#javajava_install_config): Installs a specific java open-jdk package and configures the update-alternative default java
 
 ###`java::java_6`
 Installs OpenJDK-6 from the repositories.
@@ -100,7 +99,7 @@ Specifies the default java in case multiple versions are installed. Valid option
 
 ##Limitations
 
-At the moment the module targets only OpenJDK 6 and 7 on Ubuntu platforms. Specifically, it is tested only on Ubuntu 10.04 and 12.04 distributions, although probably it will work also on more recent versions.
+At the moment the module targets only OpenJDK 6 and 7 on Ubuntu, RedHat and CentOS platforms. Specifically, it is tested only on Ubuntu 10.04 and 12.04, CentOS 6.6 distributions; although probably it will work also on more recent versions.
 
 ##Development
 

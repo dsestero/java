@@ -1,3 +1,7 @@
+##2016-11-07 - Release - 1.1.0
+###Summary
+Added support for RedHat and CentOS distributions.
+
 ##2015-07-12 - Release - 1.0.3
 ###Summary
 Bump version number after testing with Puppet 4.
