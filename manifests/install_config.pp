@@ -39,7 +39,8 @@ define java::install_config ($java_default_version, $java_version = $title,) {
 
   package { $javapkg:
     ensure => installed,
-  } ->
+  }
+
   if $java_default_version != undef and $java_version == $java_default_version {
     exec { 'set_java':
       command => "/usr/sbin/update-alternatives --set java ${javadir}",
