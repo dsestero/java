@@ -12,8 +12,14 @@
       {
           "operatingsystem": "Ubuntu",
           "operatingsystemrelease": ["10.04", "12.04"]
+      },
+      {
+          "operatingsystem": "RedHat"
+      },
+      {
+          "operatingsystem": "CentOS"
       }
   ],
   "tags": ["java", "jee", "jvm", "middleware"],
-  "version": "1.0.3"
+  "version": "1.1.0"
 }
