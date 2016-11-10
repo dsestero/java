@@ -1,6 +1,9 @@
-##2016-11-07 - Release - 1.1.0
+##2016-11-10 - Release - 1.1.0
 ###Summary
 Added support for RedHat and CentOS distributions.
+Removed support fo Ubuntu 10.04.
+Removed restriction on specific Ubuntu versions.
+Added java_8.
 
 ##2015-07-12 - Release - 1.0.3
 ###Summary

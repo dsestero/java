@@ -12,23 +12,12 @@
 # none
 #
 define java::install_config ($java_default_version, $java_version = $title,) {
-  case $::operatingsystem {
-    'Ubuntu'           : {
-      case $::operatingsystemrelease {
-        '10.04' : {
-          $javapkg = "openjdk-${java_version}-jdk"
-          $javadir = "/usr/lib/jvm/java-${java_version}-openjdk/jre/bin/java"
-        }
-        '12.04' : {
+  case osfamily {
+    'Debian' : {
           $javapkg = "openjdk-${java_version}-jdk"
           $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${::architecture}/jre/bin/java"
-        }
-        default : {
-          fail("The ${module_name} module is not supported on ${::operatingsystem} release ${::operatingsystemrelease}")
-        }
-      }
     }
-    'CentOS', 'RedHat' : {
+    'RedHat' : {
       $javapkg = "java-1.${java_version}.0-openjdk"
       $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk.${::architecture}/bin/java"
     }

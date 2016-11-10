@@ -19,7 +19,7 @@ This is the java module. It allows to install Java OpenJDK and configure the def
 
 ##Module Description
 
-The module provides classes and defines to install Java OpenJDK and configure the java alternative on Ubuntu platforms.
+The module provides classes and defines to install Java OpenJDK and configure the java alternative on Debian and RedHat family distributions.
 It allows to install multiple Java versions on the same node.
 
 ##Setup
@@ -36,7 +36,7 @@ The module has no special requirements.
 	
 ###Beginning with java	
 
-The module provides two classes to install Java OpenJDK 6 and 7 respectively. This is done, for example, by declarations as the following:
+The module provides three classes to install Java OpenJDK 6, 7 and 8 respectively. This is done, for example, by declarations as the following:
 
 ```
 include java_7
@@ -64,6 +64,7 @@ It is possible to install multiple versions of Java on a single node and to spec
 
 * [`java::java_6`](#javajava_6): Installs open-jdk-6.
 * [`java::java_7`](#javajava_7): Installs open-jdk-7.
+* [`java::java_8`](#javajava_8): Installs open-jdk-8.
 
 ###Defines
 
@@ -81,6 +82,9 @@ Installs OpenJDK-6 from the repositories.
 ###`java::java_7`
 Installs OpenJDK-7 from the repositories.
 
+###`java::java_8`
+Installs OpenJDK-8 from the repositories.
+
 ###`java::java`
 Install a specific version of java jdk and possibly sets update-alternative default.
 If hiera defines a value for the parameter `java::java_default_version` on
@@ -92,16 +96,16 @@ Declares all other defines in the java module needed for installing Java. Curren
 ####Parameters
 
 #####`java_version`
-Specifies the java version to install. Valid options: '6' or '7'. Defaults to the resource title.
+Specifies the java version to install. Valid options: '6', '7' or '8'. Defaults to the resource title.
 
 #####`java_default_version`
-Specifies the default java in case multiple versions are installed. Valid options: '6' or '7'. Defaults to the hiera defined key `java::java_default_version`.
+Specifies the default java in case multiple versions are installed. Valid options: '6', '7' or '8'. Defaults to the hiera defined key `java::java_default_version`.
 
 ##Limitations
 
-At the moment the module targets only OpenJDK 6 and 7 on Ubuntu, RedHat and CentOS platforms. Specifically, it is tested only on Ubuntu 10.04 and 12.04, CentOS 6.6 distributions; although probably it will work also on more recent versions.
+At the moment the module targets only OpenJDK 6, 7 and 8 on Debian, Ubuntu, RedHat and CentOS platforms. Specifically, it is tested only on Ubuntu 12.04 and CentOS 6.6 distributions; although probably it will work also on different versions.
 
 ##Development
 
-If you need some feature please send me a (pull) request or send me an email at: dsestero 'at' gmail 'dot' com.
+If you need some feature please send me a (pull) request and send me an email at: dsestero 'at' gmail 'dot' com.
 
