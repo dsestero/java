@@ -1,3 +1,7 @@
+##2016-11-11 - Release - 1.1.1
+###Summary
+Fixed regression in properly recognizing osfamily.
+
 ##2016-11-10 - Release - 1.1.0
 ###Summary
 Added support for RedHat and CentOS distributions.
