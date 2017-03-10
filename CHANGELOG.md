@@ -1,3 +1,7 @@
+##2017-03-10 - Release - 1.1.2
+###Summary
+Fixed empty release.
+
 ##2016-11-11 - Release - 1.1.1
 ###Summary
 Fixed regression in properly recognizing osfamily.
