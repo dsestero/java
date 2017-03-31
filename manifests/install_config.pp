@@ -16,7 +16,7 @@ define java::install_config ($java_default_version, $java_version = $title,) {
     'Debian' : {
           $javapkg = "openjdk-${java_version}-jdk"
           $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${::architecture}/jre/bin/java"
-          if $::operatingsystemrelease == "12.04" and $java_version == '8' {
+          if $::operatingsystemrelease in ['12.04', '14.04'] and $java_version == '8' {
             apt::ppa { 'ppa:openjdk-r/ppa': }
           }
     }
