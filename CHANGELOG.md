@@ -1,3 +1,7 @@
+##2017-04-04 - Release - 1.2.0
+###Summary
+Added support for java 8 on Ubuntu 12.04 and 14.04 via ppa repository.
+
 ##2017-03-10 - Release - 1.1.2
 ###Summary
 Fixed empty release.

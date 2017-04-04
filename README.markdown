@@ -21,6 +21,7 @@ This is the java module. It allows to install Java OpenJDK and configure the def
 
 The module provides classes and defines to install Java OpenJDK and configure the java alternative on Debian and RedHat family distributions.
 It allows to install multiple Java versions on the same node.
+It allows to install java 8 even if it is not in the standard repository in Ubuntu 12.04 and 14.04 via ppa.
 
 ##Setup
 
@@ -29,6 +30,8 @@ It allows to install multiple Java versions on the same node.
 The module install the OpenJDK package from the repositories and set up the alternative system for the java command.
 
 If hiera defines a value for the parameter `java::java_default_version` the alternative system link for the command java is set to manual mode according to specified version. Otherwise it is left as it is.
+
+In case java 8 installation is required on Ubuntu 12.04 or Ubuntu 14.04 the repository `ppa:openjdk-r/ppa` is added.
 
 ###Setup Requirements
 
@@ -103,7 +106,7 @@ Specifies the default java in case multiple versions are installed. Valid option
 
 ##Limitations
 
-At the moment the module targets only OpenJDK 6, 7 and 8 on Debian, Ubuntu, RedHat and CentOS platforms. Specifically, it is tested only on Ubuntu 12.04 and CentOS 6.6 distributions; although probably it will work also on different versions.
+At the moment the module targets only OpenJDK 6, 7 and 8 on Debian, Ubuntu, RedHat and CentOS platforms. Specifically, it was tested on Ubuntu 12.04, 14.04, 16.04 and CentOS 6.6 distributions; although probably it will work also on different versions.
 
 ##Development
 
