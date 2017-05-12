@@ -1,3 +1,7 @@
+##2017-05-12 - Release - 1.2.1
+###Summary
+Fixed regression error on non Debian os family.
+
 ##2017-04-04 - Release - 1.2.0
 ###Summary
 Added support for java 8 on Ubuntu 12.04 and 14.04 via ppa repository.
