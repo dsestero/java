@@ -1,31 +1,44 @@
 {
+  "name": "dsestero-java",
+  "version": "2.0.0",
   "author": "Dario Sestero",
-  "dependencies": [    {
+  "summary": "Install Java OpenJDK and configure the default java alternative",
+  "license": "Apache-2.0",
+  "source": "https://github.com/dsestero/java.git",
+  "project_page": "https://github.com/dsestero/java",
+  "issues_url": "https://github.com/dsestero/java/issues",
+  "dependencies": [
+    {
       "name": "puppetlabs/apt",
       "version_requirement": "2.x"
     }
   ],
-  "license": "Apache-2.0",
-  "name": "dsestero-java",
-  "project_page": "https://github.com/dsestero/java",
-  "issues_url": "https://github.com/dsestero/java/issues",
-  "source": "https://github.com/dsestero/java.git",
-  "summary": "Install Java OpenJDK and configure the default java alternative",
-  "requirements": [{"name": "puppet", "version_requirement": ">= 4.0.0"}],
   "operatingsystem_support": [
-      {
-          "operatingsystem": "Ubuntu"
-      },
-      {
-          "operatingsystem": "Debian"
-      },
-      {
-          "operatingsystem": "RedHat"
-      },
-      {
-          "operatingsystem": "CentOS"
-      }
+    {
+      "operatingsystem": "Ubuntu"
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystem": "CentOS"
+    }
   ],
-  "tags": ["java", "jee", "jvm", "middleware"],
-  "version": "2.0.0"
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.0.0"
+    }
+  ],
+  "tags": [
+    "java",
+    "jee",
+    "jvm",
+    "middleware"
+  ],
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.3.0-0-g632fa63"
 }
