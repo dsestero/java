@@ -30,7 +30,8 @@
 define java (
   $java_version         = $title,
   $java_default_version = hiera('java::java_default_version', undef)) {
-  if $::osfamily == 'Debian' {
+
+  if $facts['os']['family'] == 'Debian' {
     include apt
   }
   java::install_config { $java_version:
