@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-java">java</h1>
+
+<h4 id="label-Table+of+Contents">Table of Contents</h4>
+<ol><li>
+<p><a href="#overview">Overview</a></p>
+</li><li>
+<p><a href="#module-description">Module Description - What the module does and
+why it is useful</a></p>
+</li><li>
+<p><a href="#setup">Setup - The basics of getting started with java</a></p>
+<ul><li>
+<p><a href="#what-java-affects">What java affects</a></p>
+</li><li>
+<p><a href="#setup-requirements">Setup requirements</a></p>
+</li><li>
+<p><a href="#beginning-with-java">Beginning with java</a></p>
+</li></ul>
+</li><li>
+<p><a href="#usage">Usage - Configuration options and additional
+functionality</a></p>
+</li><li>
+<p><a href="#reference">Reference - An under-the-hood peek at what the module
+is doing and how</a></p>
+</li><li>
+<p><a href="#limitations">Limitations - OS compatibility, etc.</a></p>
+</li><li>
+<p><a href="#development">Development - Guide for contributing to the
+module</a></p>
+</li></ol>
+
+<h2 id="label-Overview">Overview</h2>
+
+<p>This is the java module. It allows to install Java OpenJDK and configure
+the default java alternative.</p>
+
+<h2 id="label-Module+Description">Module Description</h2>
+
+<p>The module provides classes and defines to install Java OpenJDK and
+configure the java alternative on Debian and RedHat family distributions.
+It allows to install multiple Java versions on the same node. It allows to
+install java 8 even if it is not in the standard repository in Ubuntu 12.04
+and 14.04 via ppa.</p>
+
+<h2 id="label-Setup">Setup</h2>
+
+<h3 id="label-What+java+affects">What java affects</h3>
+
+<p>The module install the OpenJDK package from the repositories and set up the
+alternative system for the java command.</p>
+
+<p>If hiera defines a value for the parameter
+<code>java::java_default_version</code> the alternative system link for the
+command java is set to manual mode according to specified version.
+Otherwise it is left as it is.</p>
+
+<p>In case java 8 installation is required on Ubuntu 12.04 or Ubuntu 14.04 the
+repository <code>ppa:openjdk-r/ppa</code> is added.</p>
+
+<h3 id="label-Setup+Requirements">Setup Requirements</h3>
+
+<p>The module has no special requirements.</p>
+
+<h3 id="label-Beginning+with+java">Beginning with java</h3>
+
+<p>The module provides three classes to install Java OpenJDK 6, 7 and 8
+respectively. This is done, for example, by declarations as the following:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_java_7'>java_7</span>
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<p>It is possible to install multiple versions of Java on a single node and to
+specify via hiera the default java to be set in the alternative system. An
+example hiera (JSON) declaration for a node could be as follows:</p>
+
+<pre class="code ruby"><code class="ruby">{
+  &quot;classes&quot; : [
+    &quot;java::java_6&quot;,
+    &quot;java::java_7&quot;
+    ],
+  &quot;java::java_default_version&quot; : &quot;6&quot;
+}</code></pre>
+
+<h2 id="label-Reference">Reference</h2>
+
+<h3 id="label-Classes">Classes</h3>
+
+<h4 id="label-Public+Classes">Public Classes</h4>
+<ul><li>
+<p><a href="#javajava_6">java::java_6</a>: Installs open-jdk-6.</p>
+</li><li>
+<p><a href="#javajava_7">java::java_7</a>: Installs open-jdk-7.</p>
+</li><li>
+<p><a href="#javajava_8">java::java_8</a>: Installs open-jdk-8.</p>
+</li></ul>
+
+<h3 id="label-Defines">Defines</h3>
+
+<h4 id="label-Public+Defines">Public Defines</h4>
+<ul><li>
+<p><a href="#javajava">java::java</a>: Install a specific version of java jdk
+and possibly sets update-alternative default</p>
+</li></ul>
+
+<h4 id="label-Private+Defines">Private Defines</h4>
+<ul><li>
+<p><a href="#javajava_install_config">java::java_install_config</a>: Installs
+a specific java open-jdk package and configures the update-alternative
+default java</p>
+</li></ul>
+
+<h3 id="label-java-3A-3Ajava_6"><code>java::java_6</code></h3>
+
+<p>Installs OpenJDK-6 from the repositories.</p>
+
+<h3 id="label-java-3A-3Ajava_7"><code>java::java_7</code></h3>
+
+<p>Installs OpenJDK-7 from the repositories.</p>
+
+<h3 id="label-java-3A-3Ajava_8"><code>java::java_8</code></h3>
+
+<p>Installs OpenJDK-8 from the repositories.</p>
+
+<h3 id="label-java-3A-3Ajava"><code>java::java</code></h3>
+
+<p>Install a specific version of java jdk and possibly sets update-alternative
+default. If hiera defines a value for the parameter
+<code>java::java_default_version</code> on the target node the command
+<code>update-alternatives</code> is issued to set the default java
+accordingly.</p>
+
+<p>Declares all other defines in the java module needed for installing Java.
+Currently, these consists of <code>java::install</code>, and
+<code>java::config</code>.</p>
+
+<h4 id="label-Parameters">Parameters</h4>
+
+<h5 id="label-java_version"><code>java_version</code></h5>
+
+<p>Specifies the java version to install. Valid options: &#39;6&#39;,
+&#39;7&#39; or &#39;8&#39;. Defaults to the resource title.</p>
+
+<h5 id="label-java_default_version"><code>java_default_version</code></h5>
+
+<p>Specifies the default java in case multiple versions are installed. Valid
+options: &#39;6&#39;, &#39;7&#39; or &#39;8&#39;. Defaults to the hiera
+defined key <code>java::java_default_version</code>.</p>
+
+<h2 id="label-Limitations">Limitations</h2>
+
+<p>At the moment the module targets only OpenJDK 6, 7 and 8 on Debian, Ubuntu,
+RedHat and CentOS platforms. Specifically, it was tested on Ubuntu 12.04,
+14.04, 16.04 and CentOS 6.6 distributions; although probably it will work
+also on different versions.</p>
+
+<h2 id="label-Development">Development</h2>
+
+<p>If you need some feature please send me a (pull) request and send me an
+email at: dsestero &#39;at&#39; gmail &#39;dot&#39; com.</p>
+</div></div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
