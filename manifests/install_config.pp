@@ -1,7 +1,15 @@
-# = Define: java::install_config
-#
 # Configures Java.
 # It is intended to be called by java::java.
+#
+# @param java_version [Integer] the java version.
+#   Possible values at this time are
+#   <tt>6</tt> and <tt>7</tt>.
+#
+# @param java_default_version [Integer] the java default version.
+#   Possible values at this time are
+#   <tt>6</tt> and <tt>7</tt>.
+#   If different than +undef+ it will be used to configure
+#   the alternative system.
 #
 # == Actions:
 #

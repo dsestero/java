@@ -1,18 +1,14 @@
-# Define: java
-#
 # This module manages Java.
 #
-# Parameters:
+# @param java_version [Integer] the java version.
+#   Possible values at this time are
+#   <tt>6</tt> and <tt>7</tt>.
 #
-# $java_version::         The java version. Possible values at this time are
-#                         <tt>6</tt> and <tt>7</tt>.
-#                         Defaults to the resource's title.
-#
-# $java_default_version:: The java default version. Possible values at this time
-#                         are <tt>6</tt> and <tt>7</tt>.
-#                         If different than +undef+ it will be used to configure
-#                         the alternative system.
-#                         Defaults to +undef+.
+# @param java_default_version [Integer] the java default version.
+#   Possible values at this time are
+#   <tt>6</tt> and <tt>7</tt>.
+#   If different than +undef+ it will be used to configure
+#   the alternative system.
 #
 # Actions:
 #

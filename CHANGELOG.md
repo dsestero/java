@@ -1,6 +1,7 @@
 ##2018-01-09 - Release - 2.0.0
 ###Summary
 Facts revision to comply with modern Puppet 4/5 recommended style.
+Adds documentation generated with puppet strings.
 Attention: the module is no more compatible with Puppet 3.
 
 ##2017-05-12 - Release - 1.2.1

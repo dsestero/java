@@ -1,10 +1,4 @@
-# Class: java::java_6
-#
 # This class installs Java-6.
-#
-# Parameters:
-#
-# none
 #
 # Actions:
 #

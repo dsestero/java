@@ -1,10 +1,4 @@
-# Class: java::java_8
-#
 # This class installs Java-8.
-#
-# Parameters:
-#
-# none
 #
 # Actions:
 #

@@ -1,10 +1,4 @@
-# Class: java::java_7
-#
 # This class installs Java-7.
-#
-# Parameters:
-#
-# none
 #
 # Actions:
 #

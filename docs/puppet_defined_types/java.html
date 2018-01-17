@@ -73,19 +73,7 @@
 <div class="docstring">
   <div class="discussion">
     
-<p>Define: java</p>
-
 <p>This module manages Java.</p>
-
-<p>Parameters:</p>
-
-<p>$java_version:: The java version. Possible values at this time are 
-<code>6</code> and <code>7</code>.  Defaults to the resource&#39;s title.</p>
-
-<p>$java_default_version:: The java default version. Possible values at this
-time  are <code>6</code> and <code>7</code>.  If different than
-<code>undef</code> it will be used to configure  the alternative system. 
-Defaults to <code>undef</code>.</p>
 
 <p>Actions:</p>
 
@@ -112,11 +100,17 @@ the default java accordingly.</p>
         <span class='name'>java_version</span>
       
       
-        <span class='type'>(<tt>Any</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>$title</tt>)</em>
       
+      
+        &mdash;
+        <div class='inline'>
+<p>the java version. Possible values at this time are <code>6</code> and
+<code>7</code>.</p>
+</div>
       
     </li>
   
@@ -125,11 +119,18 @@ the default java accordingly.</p>
         <span class='name'>java_default_version</span>
       
       
-        <span class='type'>(<tt>Any</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>hiera(&#39;java::java_default_version&#39;, undef)</tt>)</em>
       
+      
+        &mdash;
+        <div class='inline'>
+<p>the java default version. Possible values at this time are <code>6</code>
+and <code>7</code>. If different than <code>undef</code> it will be used to
+configure the alternative system.</p>
+</div>
       
     </li>
   
@@ -143,20 +144,20 @@ the default java accordingly.</p>
         <pre class="lines">
 
 
+26
+27
+28
+29
 30
 31
 32
 33
 34
 35
-36
-37
-38
-39
-40</pre>
+36</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 30</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 26</span>
 
 define java (
   $java_version         = $title,
