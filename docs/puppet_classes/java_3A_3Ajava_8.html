@@ -75,24 +75,32 @@
 <div class="docstring">
   <div class="discussion">
     
-<p>Class: java::java_8</p>
-
 <p>This class installs Java-8.</p>
-
-<p>Actions:</p>
-
-<p>Installs Java-8 by declaring the <code>java</code> define.</p>
-
-<p>Requires: see Modulefile</p>
-
-<p>Sample Usage:</p>
-
-<p>include java::java_8</p>
 
   </div>
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Declaring in manifest</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_java'>java</span><span class='op'>::</span><span class='id identifier rubyid_java_8'>java_8</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Hiera data for using java_8</p>
+</div></p>
+      
+      <pre class="example code"><code>classes:
+  - java::java_8</code></pre>
+    
+  </div>
+
 
 </div><div class="method_details_list">
   <table class="source_code">
@@ -101,13 +109,13 @@
         <pre class="lines">
 
 
-14
-15
-16
-17</pre>
+8
+9
+10
+11</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/java_8.pp', line 14</span>
+        <pre class="code"><span class="info file"># File 'manifests/java_8.pp', line 8</span>
 
 class java::java_8 {
 

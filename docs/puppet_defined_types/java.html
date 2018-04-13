@@ -83,16 +83,22 @@ defines a value for the parameter <code>java_default_version</code> on the
 target node the command <code>update-alternatives</code> is issued to set
 the default java accordingly.</p>
 
-<p>Requires: see Modulefile</p>
-
-<p>Sample Usage:</p>
-
-<p>java {&#39;6&#39;: }</p>
-
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Declaring in manifest</p>
+</div></p>
+      
+      <pre class="example code"><code>java {&#39;6&#39;: }</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -119,7 +125,7 @@ the default java accordingly.</p>
         <span class='name'>java_default_version</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Optional[Integer]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>hiera(&#39;java::java_default_version&#39;, undef)</tt>)</em>
@@ -144,6 +150,8 @@ configure the alternative system.</p>
         <pre class="lines">
 
 
+24
+25
 26
 27
 28
@@ -152,16 +160,14 @@ configure the alternative system.</p>
 31
 32
 33
-34
-35
-36</pre>
+34</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 26</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 24</span>
 
 define java (
-  $java_version         = $title,
-  $java_default_version = hiera(&#39;java::java_default_version&#39;, undef)) {
+  Integer $java_version                   = $title,
+  Optional[Integer] $java_default_version = hiera(&#39;java::java_default_version&#39;, undef)) {
 
   if $facts[&#39;os&#39;][&#39;family&#39;] == &#39;Debian&#39; {
     include apt

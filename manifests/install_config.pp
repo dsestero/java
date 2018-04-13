@@ -1,3 +1,4 @@
+# @api private
 # Configures Java.
 # It is intended to be called by java::java.
 #
@@ -5,7 +6,7 @@
 #   Possible values at this time are
 #   <tt>6</tt> and <tt>7</tt>.
 #
-# @param java_default_version [Integer] the java default version.
+# @param java_default_version [Optional[Integer]] the java default version.
 #   Possible values at this time are
 #   <tt>6</tt> and <tt>7</tt>.
 #   If different than +undef+ it will be used to configure
@@ -16,10 +17,10 @@
 # Sets up the default java according to the parameter
 # <tt>java_default_version</tt> if it is not null.
 #
-# == Requires:
-# none
-#
-define java::install_config ($java_default_version, $java_version = $title,) {
+define java::install_config (
+  Integer $java_version = $title,
+  Optional[Integer] $java_default_version,
+) {
   case $facts['os']['family'] {
     'Debian' : {
           $javapkg = "openjdk-${java_version}-jdk"
