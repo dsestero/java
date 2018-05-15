@@ -22,7 +22,7 @@
 # @author Dario Sestero
 define java (
   Integer $java_version                   = $title,
-  Optional[Integer] $java_default_version = hiera('java::java_default_version', undef)) {
+  Optional[Integer] $java_default_version = lookup('java::java_default_version', 'unique', undef)) {
 
   if $facts['os']['family'] == 'Debian' {
     include apt
