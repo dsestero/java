@@ -17,7 +17,7 @@
 #   the alternative system.
 #
 # @example Declaring in manifest
-#   java {'6': }
+#   java {6: }
 #
 # @author Dario Sestero
 define java (

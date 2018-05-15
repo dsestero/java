@@ -7,5 +7,5 @@
 #     - java::java_8
 class java::java_8 {
 
-  java {'8': }
+  java {8: }
 }
