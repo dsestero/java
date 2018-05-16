@@ -2,13 +2,13 @@
 # Configures Java.
 # It is intended to be called by java::java.
 #
-# @param java_version [Integer] the java version.
+# @param java_version [String] the java version.
 #   Possible values at this time are
 #   <tt>6</tt> and <tt>7</tt>.
 #
-# @param java_default_version [Optional[Integer]] the java default version.
+# @param java_default_version [Optional[String]] the java default version.
 #   Possible values at this time are
-#   <tt>6</tt> and <tt>7</tt>.
+#   <tt>6</tt>, <tt>7>/tt> and <tt>8</tt>.
 #   If different than +undef+ it will be used to configure
 #   the alternative system.
 #
@@ -18,8 +18,8 @@
 # <tt>java_default_version</tt> if it is not null.
 #
 define java::install_config (
-  Integer $java_version = $title,
-  Optional[Integer] $java_default_version,
+  String $java_version = $title,
+  Optional[String] $java_default_version,
 ) {
   case $facts['os']['family'] {
     'Debian' : {
