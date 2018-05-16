@@ -7,5 +7,5 @@
 #     - java::java_7
 class java::java_7 {
 
-  java {7: }
+  java {'7': }
 }
