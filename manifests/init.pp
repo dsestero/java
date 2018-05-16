@@ -6,11 +6,11 @@
 # the target node the command <tt>update-alternatives</tt> is issued to set the
 # default java accordingly.
 #
-# @param java_version [Integer] the java version.
+# @param java_version [String] the java version.
 #   Possible values at this time are
 #   <tt>6</tt> and <tt>7</tt>.
 #
-# @param java_default_version [Optional[Integer]] the java default version.
+# @param java_default_version [Optional[String]] the java default version.
 #   Possible values at this time are
 #   <tt>6</tt> and <tt>7</tt>.
 #   If different than +undef+ it will be used to configure
@@ -21,8 +21,8 @@
 #
 # @author Dario Sestero
 define java (
-  Integer $java_version                   = $title,
-  Optional[Integer] $java_default_version = lookup('java::java_default_version', 'unique', undef)) {
+  String $java_version                   = $title,
+  Optional[Integer] $java_default_version = lookup('java::java_default_version', String, 'first', undef)) {
 
   if $facts['os']['family'] == 'Debian' {
     include apt
