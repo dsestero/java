@@ -22,7 +22,7 @@
 # @author Dario Sestero
 define java (
   String $java_version                   = $title,
-  Optional[String] $java_default_version = lookup('java::java_default_version', String, 'first', undef)) {
+  Optional[String] $java_default_version = lookup('java::java_default_version', Optional[String], 'first', undef)) {
 
   if $facts['os']['family'] == 'Debian' {
     include apt
