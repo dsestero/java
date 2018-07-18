@@ -8,16 +8,16 @@
 #
 # @param java_version [String] the java version.
 #   Possible values at this time are
-#   <tt>6</tt> and <tt>7</tt>.
+#   <tt>6</tt>, <tt>7</tt>, <tt>8</tt> and <tt>9</tt>.
 #
 # @param java_default_version [Optional[String]] the java default version.
 #   Possible values at this time are
-#   <tt>6</tt> and <tt>7</tt>.
+#   <tt>6</tt>, <tt>7</tt>, <tt>8</tt> and <tt>9</tt>.
 #   If different than +undef+ it will be used to configure
 #   the alternative system.
 #
 # @example Declaring in manifest
-#   java {6: }
+#   java {'8': }
 #
 # @author Dario Sestero
 define java (
