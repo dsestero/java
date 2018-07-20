@@ -70,12 +70,15 @@ define java::install_config (
           fail("The ${module_name} module is not supported for Oracle JDK version ${java_version}.")
         }
       }
-     download_uncompress {"dwnl_inst_${java_version}":
-       distribution_name  => $distribution_name,
-       dest_folder   => '/opt/jdk',
-       creates       => $javadir,
-       uncompress    => 'tar.gz',
-     }
+      file {'/opt/jdk':
+        ensure => directory,
+      }
+      download_uncompress {"dwnl_inst_${java_version}":
+        distribution_name  => $distribution_name,
+        dest_folder   => '/opt/jdk',
+        creates       => $javadir,
+        uncompress    => 'tar.gz',
+      }
   }
 
   if $java_default_version != undef and $java_version == $java_default_version {
