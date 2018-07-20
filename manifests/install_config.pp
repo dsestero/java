@@ -12,7 +12,8 @@
 #
 # @param java_default_version [Optional[String]] the java default version.
 #   Possible values at this time are
-#   <tt>6</tt>, <tt>7>/tt> and <tt>8</tt>. Oracle jdk-6, howewer, is not supported.
+#   <tt>6</tt>, <tt>7>/tt> and <tt>8</tt>.
+#   Oracle jdk-6, howewer, is not supported while Oracle jdk-7 and Oracle jdk-8 at the moment are 64 bit versions.
 #   If different than +undef+ it will be used to configure
 #   the alternative system.
 #
