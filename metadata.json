@@ -11,6 +11,10 @@
     {
       "name": "puppetlabs/apt",
       "version_requirement": "2.x"
+    },
+    {
+      "name": "dsestero/download_uncompress",
+      "version_requirement": "1.x"
     }
   ],
   "operatingsystem_support": [

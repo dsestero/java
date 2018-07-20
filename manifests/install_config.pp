@@ -6,6 +6,10 @@
 #   Possible values at this time are
 #   <tt>6</tt> and <tt>7</tt>.
 #
+# @param openjdk [Boolean] use openjdk.
+#   <tt>true</tt> means to install openjdk from distribution packages
+#   <tt>false</tt> means to untar the Oracle archive.
+#
 # @param java_default_version [Optional[String]] the java default version.
 #   Possible values at this time are
 #   <tt>6</tt>, <tt>7>/tt> and <tt>8</tt>.
@@ -19,27 +23,59 @@
 #
 define java::install_config (
   String $java_version = $title,
+  Boolean $openjdk,
   Optional[String] $java_default_version,
 ) {
   case $facts['os']['family'] {
     'Debian' : {
-          $javapkg = "openjdk-${java_version}-jdk"
-          $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${facts['os']['architecture']}/jre/bin/java"
-          if $facts['os']['release'] in ['12.04', '14.04'] and $java_version == '8' {
-            apt::ppa { 'ppa:openjdk-r/ppa': }
-          }
+      $javapkg = "openjdk-${java_version}-jdk"
+      if $facts['os']['release'] in ['12.04', '14.04'] and $java_version == '8' {
+        apt::ppa { 'ppa:openjdk-r/ppa': }
+      }
     }
     'RedHat' : {
       $javapkg = "java-1.${java_version}.0-openjdk"
-      $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk.${facts['os']['architecture']}/bin/java"
     }
     default  : {
       fail("The ${module_name} module is not supported on an ${facts['os']['family']} distribution.")
     }
   }
 
-  package { $javapkg:
-    ensure => installed,
+  if $openjdk {
+    package { $javapkg:
+      ensure => installed,
+    }
+    case $facts['os']['family'] {
+      'Debian' : {
+        $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${facts['os']['architecture']}/jre/bin/java"
+      }
+      'RedHat' : {
+        $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk.${facts['os']['architecture']}/bin/java"
+      }
+      default  : {
+        fail("The ${module_name} module is not supported on an ${facts['os']['family']} distribution.")
+      }
+    }
+  } else {
+      case $java_version {
+        '7' : {
+          $distribution_name = 'jdk-7u80-linux-x64.tar.gz'
+          $javadir = '/opt/jdk/jdk1.7.0_80'
+        }
+        '8' : {
+          $distribution_name = 'jdk-8u172-linux-x64.tar.gz'
+          $javadir = '/opt/jdk/jdk1.8.0_172'
+        }
+        default  : {
+          fail("The ${module_name} module is not supported for Oracle JDK version ${java_version}.")
+        }
+      }
+     download_uncompress {"dwnl_inst_${java_version}":
+       distribution_name  => $distribution_name,
+       dest_folder   => '/opt/jdk',
+       creates       => $javadir,
+       uncompress    => 'tar.gz',
+     }
   }
 
   if $java_default_version != undef and $java_version == $java_default_version {
