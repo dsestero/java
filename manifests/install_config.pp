@@ -74,7 +74,7 @@ define java::install_config (
         ensure => directory,
       }
       download_uncompress {"dwnl_inst_${java_version}":
-        distribution_name  => $distribution_name,
+        distribution_name  => "java/${distribution_name}",
         dest_folder   => '/opt/jdk',
         creates       => $javadir,
         uncompress    => 'tar.gz',
