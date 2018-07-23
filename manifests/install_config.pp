@@ -42,16 +42,20 @@ define java::install_config (
     }
   }
 
+  file {'/opt/jdk':
+    ensure => directory,
+  }
+
   if $openjdk {
     package { $javapkg:
       ensure => installed,
     }
     case $facts['os']['family'] {
       'Debian' : {
-        $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${facts['os']['architecture']}/jre/bin/java"
+        $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${facts['os']['architecture']}/jre"
       }
       'RedHat' : {
-        $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk.${facts['os']['architecture']}/bin/java"
+        $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk.${facts['os']['architecture']}"
       }
       default  : {
         fail("The ${module_name} module is not supported on an ${facts['os']['family']} distribution.")
@@ -71,9 +75,6 @@ define java::install_config (
           fail("The ${module_name} module is not supported for Oracle JDK version ${java_version}.")
         }
       }
-      file {'/opt/jdk':
-        ensure => directory,
-      }
       download_uncompress {"dwnl_inst_${java_version}":
         distribution_name  => "java/${distribution_name}",
         dest_folder   => '/opt/jdk',
@@ -82,14 +83,19 @@ define java::install_config (
       }
       exec { "install_java_${java_version}":
         command => "/usr/sbin/update-alternatives --install /usr/bin/java java ${javadir}/bin/java 100",
-        unless  => "/usr/sbin/update-alternatives --display java | grep ${javadir}",
+        unless  => "/usr/sbin/update-alternatives --display java | grep ${javadir}/bin/java",
       }
+  }
+
+  file { "/opt/jdk/java-${java_version}":
+    ensure => link,
+    target => $javadir,
   }
 
   if $java_default_version != undef and $java_version == $java_default_version {
     exec { 'set_java':
-      command => "/usr/sbin/update-alternatives --set java ${javadir}",
-      unless  => "ls -l /etc/alternatives/java | grep ${javadir}",
+      command => "/usr/sbin/update-alternatives --set java ${javadir}/bin/java",
+      unless  => "ls -l /etc/alternatives/java | grep ${javadir}/bin/java",
     }
   }
 }
