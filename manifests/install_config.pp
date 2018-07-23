@@ -42,9 +42,7 @@ define java::install_config (
     }
   }
 
-  file {'/opt/jdk':
-    ensure => directory,
-  }
+  include java::jdkfolder
 
   if $openjdk {
     package { $javapkg:
