@@ -3,7 +3,7 @@
 # are bundled in the JDK(TM) 6 environment allow "strong" but limited
 # cryptography to be used. This override provides "unlimited strength"
 # policy files which contain no restrictions on cryptographic strengths.
-# WARNING: At the moment this class supports only openjdk-6.
+# WARNING: At the moment this class supports only openjdk-6 on Debian/Ubuntu systems.
 
 class java::jce_policy_6 {
   file {
