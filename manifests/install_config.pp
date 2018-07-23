@@ -80,6 +80,10 @@ define java::install_config (
         creates       => $javadir,
         uncompress    => 'tar.gz',
       }
+      exec { "install_java_${java_version}":
+        command => "/usr/sbin/update-alternatives --install /usr/bin/java java ${javadir} 100",
+        unless  => "/usr/sbin/update-alternatives --display java | grep ${javadir}",
+      }
   }
 
   if $java_default_version != undef and $java_version == $java_default_version {
