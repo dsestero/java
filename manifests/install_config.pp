@@ -53,7 +53,7 @@ define java::install_config (
         $javadir = "/usr/lib/jvm/java-${java_version}-openjdk-${facts['os']['architecture']}/jre"
       }
       'RedHat' : {
-        $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk.${facts['os']['architecture']}"
+        $javadir = "/usr/lib/jvm/jre-1.${java_version}.0-openjdk"
       }
       default  : {
         fail("The ${module_name} module is not supported on an ${facts['os']['family']} distribution.")
