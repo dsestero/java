@@ -1,4 +1,3 @@
-# @api private
 # Configures Java.
 # It is intended to be called by java::java.
 #
@@ -23,8 +22,8 @@
 # <tt>java_default_version</tt> if it is not null.
 #
 define java::install_config (
-  String $java_version = $title,
   Boolean $openjdk,
+  String $java_version = $title,
   Optional[String] $java_default_version,
 ) {
   case $facts['os']['family'] {
@@ -74,10 +73,10 @@ define java::install_config (
         }
       }
       download_uncompress {"dwnl_inst_${java_version}":
-        distribution_name  => "java/${distribution_name}",
-        dest_folder   => '/opt/jdk',
-        creates       => $javadir,
-        uncompress    => 'tar.gz',
+        distribution_name => "java/${distribution_name}",
+        dest_folder       => '/opt/jdk',
+        creates           => $javadir,
+        uncompress        => 'tar.gz',
       }
       exec { "install_java_${java_version}":
         command => "/usr/sbin/update-alternatives --install /usr/bin/java java ${javadir}/bin/java 100",

@@ -15,11 +15,12 @@
 
 ##Overview
 
-This is the java module. It allows to install Java OpenJDK and configure the default java alternative.
+This is the java module. It allows to install Java OpenJDK or Oracle JDK and configure the default java alternative.
 
 ##Module Description
 
-The module provides classes and defines to install Java OpenJDK and configure the java alternative on Debian and RedHat family distributions.
+The module provides classes and defines to install Java OpenJDK from distribution packages
+or rather install Oracle JDK. Furthermore, it allows to configure the java alternative on Debian and RedHat family distributions.
 It allows to install multiple Java versions on the same node.
 It allows to install java 8 even if it is not in the standard repository in Ubuntu 12.04 and 14.04 via ppa.
 
@@ -27,19 +28,38 @@ It allows to install java 8 even if it is not in the standard repository in Ubun
 
 ###What java affects
 
-The module install the OpenJDK package from the repositories and set up the alternative system for the java command.
+The module installs the OpenJDK package from the repositories or the Oracle JDK from the download archive.
 
-If hiera defines a value for the parameter `java::java_default_version` the alternative system link for the command java is set to manual mode according to specified version. Otherwise it is left as it is.
+If required, the module sets up the alternative system for the java command.
+This is specified by providing a hiera value for the parameter `java::java_default_version`;
+in that case, the alternative system link for the command java is set to manual mode according to specified version.
+Otherwise it is left as it is.
 
 In case java 8 installation is required on Ubuntu 12.04 or Ubuntu 14.04 the repository `ppa:openjdk-r/ppa` is added.
 
+The module provides a jce_policy_6 class to be used to override two libraries in the standard java distribution.
+Due to import control restrictions, the version of JCE policy files that
+are bundled in the JDK(TM) 6 environment allow "strong" but limited
+cryptography to be used. This override provides "unlimited strength"
+policy files which contain no restrictions on cryptographic strengths.
+Notice that at the moment this class supports only openjdk-6 on Debian/Ubuntu systems.
+
 ###Setup Requirements
 
-The module has no special requirements.
+The module requires the following modules:
+
+* puppetlabs/apt
+
+    to manage apt repositories
+
+* dsestero/download_uncompress
+
+    to provide the basic capability to download and unzip Oracle Java distributions
 	
 ###Beginning with java	
 
-The module provides three classes to install Java OpenJDK 6, 7 and 8 respectively. This is done, for example, by declarations as the following:
+The module provides different classes to install Java OpenJDK 6, 7, 8 and 9; furthermore, it is possible to install Oracle JDK 7 and 8.
+This is done, for example, by declarations as the following:
 
 ```
 include java_7
@@ -58,51 +78,6 @@ It is possible to install multiple versions of Java on a single node and to spec
   "java::java_default_version" : "6"
 }
 ```
-
-##Reference
-
-###Classes
-
-####Public Classes
-
-* [`java::java_6`](#javajava_6): Installs open-jdk-6.
-* [`java::java_7`](#javajava_7): Installs open-jdk-7.
-* [`java::java_8`](#javajava_8): Installs open-jdk-8.
-
-###Defines
-
-####Public Defines
-
-* [`java::java`](#javajava): Install a specific version of java jdk and possibly sets update-alternative default
-
-####Private Defines
-
-* [`java::java_install_config`](#javajava_install_config): Installs a specific java open-jdk package and configures the update-alternative default java
-
-###`java::java_6`
-Installs OpenJDK-6 from the repositories.
-
-###`java::java_7`
-Installs OpenJDK-7 from the repositories.
-
-###`java::java_8`
-Installs OpenJDK-8 from the repositories.
-
-###`java::java`
-Install a specific version of java jdk and possibly sets update-alternative default.
-If hiera defines a value for the parameter `java::java_default_version` on
-the target node the command `update-alternatives` is issued to set the
-default java accordingly.
-
-Declares all other defines in the java module needed for installing Java. Currently, these consists of `java::install`, and `java::config`.
-
-####Parameters
-
-#####`java_version`
-Specifies the java version to install. Valid options: '6', '7' or '8'. Defaults to the resource title.
-
-#####`java_default_version`
-Specifies the default java in case multiple versions are installed. Valid options: '6', '7' or '8'. Defaults to the hiera defined key `java::java_default_version`.
 
 ##Limitations
 

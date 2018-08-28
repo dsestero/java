@@ -1,6 +1,6 @@
 {
   "name": "dsestero-java",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Dario Sestero",
   "summary": "Install Java OpenJDK and configure the default java alternative",
   "license": "Apache-2.0",
@@ -44,6 +44,6 @@
     "middleware"
   ],
   "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
-  "template-ref": "1.4.1-0-g52adbbb",
-  "pdk-version": "1.4.1"
+  "template-ref": "1.5.0-0-gd1b3eca",
+  "pdk-version": "1.5.0"
 }
