@@ -1,3 +1,7 @@
+##2019-01-04 - Release - 2.0.2
+###Summary
+Fixed link to java home directory for openjdk on RHEL/CentOS 5 and 6.
+
 ##2018-08-28 - Release - 2.0.1
 ###Summary
 Minor fixes to improve the quality score.

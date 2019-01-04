@@ -1,6 +1,6 @@
 {
   "name": "dsestero-java",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Dario Sestero",
   "summary": "Install Java OpenJDK and configure the default java alternative",
   "license": "Apache-2.0",
