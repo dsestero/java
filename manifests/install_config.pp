@@ -30,6 +30,7 @@ define java::install_config (
     'Debian' : {
       $javapkg = "openjdk-${java_version}-jdk"
       if $facts['os']['release'] in ['12.04', '14.04'] and $java_version == '8' {
+        $javapkg = "openjdk-${java_version}"
         apt::ppa { 'ppa:openjdk-r/ppa': }
       }
     }
