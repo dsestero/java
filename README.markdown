@@ -1,6 +1,6 @@
-#java
+# java
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
@@ -13,20 +13,20 @@
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
-##Overview
+## Overview
 
 This is the java module. It allows to install Java OpenJDK or Oracle JDK and configure the default java alternative.
 
-##Module Description
+## Module Description
 
 The module provides classes and defines to install Java OpenJDK from distribution packages
 or rather install Oracle JDK. Furthermore, it allows to configure the java alternative on Debian and RedHat family distributions.
 It allows to install multiple Java versions on the same node.
 It allows to install java 8 even if it is not in the standard repository in Ubuntu 12.04 and 14.04 via ppa.
 
-##Setup
+## Setup
 
-###What java affects
+### What java affects
 
 The module installs the OpenJDK package from the repositories or the Oracle JDK from the download archive.
 
@@ -44,7 +44,7 @@ cryptography to be used. This override provides "unlimited strength"
 policy files which contain no restrictions on cryptographic strengths.
 Notice that at the moment this class supports only openjdk-6 on Debian/Ubuntu systems.
 
-###Setup Requirements
+### Setup Requirements
 
 The module requires the following modules:
 
@@ -56,7 +56,7 @@ The module requires the following modules:
 
     to provide the basic capability to download and unzip Oracle Java distributions
 	
-###Beginning with java	
+### Beginning with java	
 
 The module provides different classes to install Java OpenJDK 6, 7, 8 and 9; furthermore, it is possible to install Oracle JDK 7 and 8.
 This is done, for example, by declarations as the following:
@@ -65,7 +65,7 @@ This is done, for example, by declarations as the following:
 include java_7
 ```
 
-##Usage
+## Usage
 
 It is possible to install multiple versions of Java on a single node and to specify via hiera the default java to be set in the alternative system. An example hiera (JSON) declaration for a node could be as follows:
 
@@ -79,11 +79,11 @@ It is possible to install multiple versions of Java on a single node and to spec
 }
 ```
 
-##Limitations
+## Limitations
 
 At the moment the module targets only OpenJDK 6, 7 and 8 on Debian, Ubuntu, RedHat and CentOS platforms. Specifically, it was tested on Ubuntu 12.04, 14.04, 16.04 and CentOS 6.6 distributions; although probably it will work also on different versions.
 
-##Development
+## Development
 
 If you need some feature please send me a (pull) request and send me an email at: dsestero 'at' gmail 'dot' com.
 
